@@ -31,4 +31,4 @@ jobs:
         run: terraform plan
 
       - name: Apply Terraform on Push
-        run: terraform apply
+        run: terraform apply -input=false -compact-warnings -auto-approve
