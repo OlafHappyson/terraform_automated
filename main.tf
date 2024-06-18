@@ -12,7 +12,7 @@ provider "aws" {
 
 # Private S3 Bucket
 resource "aws_s3_bucket" "private_bucket" {
-  bucket = "my-private-bucket-example"
+  bucket = "generalpurpose-private-robotdreams"
 }
 
 resource "aws_s3_bucket_policy" "private_bucket_policy" {
@@ -38,7 +38,7 @@ resource "aws_s3_bucket_policy" "private_bucket_policy" {
 
 # Public S3 Bucket
 resource "aws_s3_bucket" "public_bucket" {
-  bucket = "my-public-bucket-example"
+  bucket = "generalpurpose-public-robotdreams"
 }
 
 resource "aws_s3_bucket_policy" "public_bucket_policy" {
