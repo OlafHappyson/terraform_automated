@@ -7,7 +7,6 @@ jobs:
   terraform:
     name: 'Terraform Apply'
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -28,12 +27,12 @@ jobs:
         run: terraform init
 
       - name: Plan Terraform
-        run: terraform plan
+        run: terraform plan -out=tfplan
 
       - name: Apply Terraform
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -auto-approve
+        run: terraform apply tfplan
 
       - name: Apply Terraform on PR Merge
         if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
-        run: terraform apply -auto-approve
+        run: terraform apply tfplan
